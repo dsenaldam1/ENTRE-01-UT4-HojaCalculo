@@ -5,7 +5,7 @@
  *  se anotan la fecha, los ingresos y los gastos correspondientes a un
  *  apunte  contable  de una empresa
  * 
- * @author - 
+ * @author David Sena 
  *  
  */
 public class Fila
@@ -19,7 +19,10 @@ public class Fila
      * Constructor  
      */
     public Fila(String id)    {
-         
+        id = id;
+        ingresos = 0;
+        gastos = 0;
+        this.fecha = new Fecha (1, 1, 2020);
 
     }
 
@@ -27,8 +30,10 @@ public class Fila
      * Constructor  
      */
     public Fila(String id, Fecha fecha, double ingresos, double gastos)    {
-        
-
+        this.id = id;
+        this.fecha = fecha;
+        this.ingresos = ingresos;
+        this.gastos = gastos;
     }
     
     /**
