@@ -14,12 +14,12 @@ public class Fila
     private Fecha fecha;
     private double ingresos;
     private double gastos;
-
+    private double beneficio;
     /**
      * Constructor  
      */
     public Fila(String id)    {
-        id = id;
+        this.id = id;
         ingresos = 0;
         gastos = 0;
         this.fecha = new Fecha (1, 1, 2020);
@@ -34,8 +34,9 @@ public class Fila
         this.fecha = fecha;
         this.ingresos = ingresos;
         this.gastos = gastos;
+
     }
-    
+
     /**
      * accesor para el id de la fila
      */
@@ -43,7 +44,6 @@ public class Fila
         return this.id;
 
     }
-
 
     /**
      * accesor para la fecha
@@ -76,14 +76,13 @@ public class Fila
         return this.ingresos - this.gastos;
 
     }
-    
     /**
      * obtiene una copia idéntica a la fila actual.
      * La fecha que incluye la fila duplicada también es una copia
      * 
      */
     public Fila duplicar() {
-       return null;
+        return new Fila(this.id + fecha.toString() + this.ingresos + this.gastos + getBeneficio());
 
     }
 
@@ -91,11 +90,12 @@ public class Fila
      * Representación textual de una fila
      * (leer enunciado)
      */
-    public String toString() {
-      return null;
-
+    public String toString() {                   	
+        String ben = String.format("%14.2f€", getBeneficio());
+        if (this.beneficio < 0 ){
+            ben +="**";
+        }
+        return String.format("%8s%15s%14.2f€%14.2f€%15s", this.id, this.fecha, this.ingresos, this.gastos, ben);
     }
-
-     
 
 }
